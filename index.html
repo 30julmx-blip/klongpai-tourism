@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คลองไผ่ท่องเที่ยว 🌿</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- ============ HEADER ============ -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-icon">🌿</span>
+                <span class="logo-text">คลองไผ่</span>
+            </div>
+            <nav class="nav-menu">
+                <a href="#" class="nav-link active">หน้าหลัก</a>
+                <a href="#" class="nav-link">เกี่ยวกับ</a>
+                <a href="#" class="nav-link">ติดต่อ</a>
+            </nav>
+            <div class="header-actions">
+                <input type="text" class="search-box" placeholder="ค้นหา...">
+                <button class="profile-btn"><i class="fas fa-user-circle"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============ MAIN CONTENT ============ -->
+    <main class="main-container">
+        
+        <!-- ========== PAGE 1: HOME (MAP) ========== -->
+        <section id="page-home" class="page active">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1>ยินดีต้อนรับสู่เทศบาลคลองไผ่</h1>
+                    <p>สถานที่ท่องเที่ยวสุดน่ารัก ท่ามกลางธรรมชาติที่งดงาม</p>
+                </div>
+                <div class="hero-map" id="interactive-map">
+                    <!-- Map SVG จะโหลดที่นี่ -->
+                    <div class="map-container">
+                        <div class="map-background">
+                            <div class="village-marker" data-village="1" onclick="showVillageDetail(1)">
+                                <div class="marker-circle">📍</div>
+                                <div class="marker-label">หมู่1 วงการ</div>
+                            </div>
+                            <div class="village-marker" data-village="2" onclick="showVillageDetail(2)">
+                                <div class="marker-circle">📍</div>
+                                <div class="marker-label">หมู่2 เกษตร</div>
+                            </div>
+                            <div class="village-marker" data-village="3" onclick="showVillageDetail(3)">
+                                <div class="marker-circle">📍</div>
+                                <div class="marker-label">หมู่3 อาหาร</div>
+                            </div>
+                            <div class="village-marker" data-village="4" onclick="showVillageDetail(4)">
+                                <div class="marker-circle">📍</div>
+                                <div class="marker-label">หมู่4 หัตถกรรม</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== PAGE 2: EVENTS (กิจกรรม) ========== -->
+        <section id="page-events" class="page">
+            <div class="page-header">
+                <h1>🎉 กิจกรรมท่องเที่ยว</h1>
+            </div>
+            
+            <div class="events-container">
+                <div class="month-selector">
+                    <button class="month-btn" onclick="prevMonth()">◀️</button>
+                    <h2 id="current-month">มกราคม 2567</h2>
+                    <button class="month-btn" onclick="nextMonth()">▶️</button>
+                </div>
+
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <div class="day-name">จ.</div>
+                        <div class="day-name">อ.</div>
+                        <div class="day-name">พ.</div>
+                        <div class="day-name">พฤ.</div>
+                        <div class="day-name">ศ.</div>
+                        <div class="day-name">ส.</div>
+                        <div class="day-name">อา.</div>
+                    </div>
+                    <div class="calendar-body" id="calendar-body">
+                        <!-- ตัวเลขวันจะถูก generate โดย JavaScript -->
+                    </div>
+                </div>
+
+                <div class="event-details" id="event-details">
+                    <div class="event-card">
+                        <div class="event-emoji">🎉</div>
+                        <h3>เลือกวันเพื่อดูกิจกรรม</h3>
+                        <p>กดที่วันในปฏิทินเพื่อดูรายละเอียดกิจกรรม</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== PAGE 3: PRODUCTS (สินค้า) ========== -->
+        <section id="page-products" class="page">
+            <div class="page-header">
+                <h1>🛍️ สินค้าจากชุมชน</h1>
+            </div>
+
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+                <button class="filter-btn" data-filter="clothing">เสื้อผ้า</button>
+                <button class="filter-btn" data-filter="food">อาหาร</button>
+                <button class="filter-btn" data-filter="handicraft">ของใช้</button>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+                <!-- Products จะถูก load ที่นี่ -->
+            </div>
+        </section>
+
+        <!-- ========== PAGE 4: RESTAURANTS (ร้านอาหาร) ========== -->
+        <section id="page-restaurants" class="page">
+            <div class="page-header">
+                <h1>🍜 ร้านอาหาร</h1>
+            </div>
+
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+                <button class="filter-btn" data-filter="noodles">ก๋วยเตี๋ยว</button>
+                <button class="filter-btn" data-filter="rice">กับข้าว</button>
+                <button class="filter-btn" data-filter="custom">อาหารตามสั่ง</button>
+            </div>
+
+            <div class="restaurants-list" id="restaurants-list">
+                <!-- Restaurants จะถูก load ที่นี่ -->
+            </div>
+        </section>
+
+        <!-- ========== PAGE 5: ACCOMMODATIONS (ที่พัก) ========== -->
+        <section id="page-accommodations" class="page">
+            <div class="page-header">
+                <h1>🏨 ที่พัก</h1>
+            </div>
+
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+                <button class="filter-btn" data-filter="mountain">บนเขา</button>
+                <button class="filter-btn" data-filter="riverside">ริมน้ำ</button>
+                <button class="filter-btn" data-filter="community">ในชุมชน</button>
+            </div>
+
+            <div class="accommodations-list" id="accommodations-list">
+                <!-- Accommodations จะถูก load ที่นี่ -->
+            </div>
+        </section>
+
+        <!-- ========== PAGE 6: TRANSPORT (ขนส่ง) ========== -->
+        <section id="page-transport" class="page">
+            <div class="page-header">
+                <h1>🚌 ตารางขนส่ง</h1>
+            </div>
+
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+                <button class="filter-btn" data-filter="train">รถไฟ</button>
+                <button class="filter-btn" data-filter="songthaew">รถสองแถว</button>
+                <button class="filter-btn" data-filter="motorbike">มอไซส์</button>
+            </div>
+
+            <div class="transport-list" id="transport-list">
+                <!-- Transport จะถูก load ที่นี่ -->
+            </div>
+        </section>
+
+        <!-- ========== PAGE 7: PACKAGES (แพ็คเกจ) ========== -->
+        <section id="page-packages" class="page">
+            <div class="page-header">
+                <h1>🎒 แพ็คเกจแนะนำ</h1>
+            </div>
+
+            <div class="packages-list" id="packages-list">
+                <!-- Packages จะถูก load ที่นี่ -->
+            </div>
+        </section>
+
+        <!-- ========== PAGE 8: INFO (ข้อมูล) ========== -->
+        <section id="page-info" class="page">
+            <div class="page-header">
+                <h1>ℹ️ ข้อมูล</h1>
+            </div>
+
+            <div class="info-container">
+                <div class="info-card">
+                    <h3>📞 ติดต่อท่องเที่ยว</h3>
+                    <p><strong>เบอร์:</strong> 089-9999999</p>
+                    <p><strong>Email:</strong> info@klongpai.go.th</p>
+                    <p><strong>Facebook:</strong> Klongpai Tourism</p>
+                    <p><strong>LINE:</strong> @klongpai</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>🏢 เทศบาลคลองไผ่</h3>
+                    <p><strong>เบอร์:</strong> 054-XXXXX</p>
+                    <p><strong>ที่อยู่:</strong> หมู่1 ตำบลคลองไผ่ อำเภอสายชล จังหวัดกาญจนบุรี</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>🚨 หมายเลขฉุกเฉิน</h3>
+                    <p><strong>🚓 ตำรวจ:</strong> 191</p>
+                    <p><strong>🚑 พยาบาล:</strong> 1669</p>
+                    <p><strong>🔥 ดับเพลิง:</strong> 199</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>📝 สำหรับผู้ประกอบการ</h3>
+                    <button class="btn-primary" onclick="openRegistration()">
+                        สมัครเป็นพาร์ทเนอร์
+                    </button>
+                </div>
+
+                <div class="info-card">
+                    <h3>📋 ลิงค์เพิ่มเติม</h3>
+                    <ul>
+                        <li><a href="#">เกี่ยวกับเรา</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">เงื่อนไขการใช้บริการ</a></li>
+                        <li><a href="#">นโยบายความเป็นส่วนตัว</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============ BOTTOM NAVIGATION ============ -->
+    <nav class="bottom-nav">
+        <button class="nav-item active" data-page="page-home" onclick="navigateTo('page-home', 0)">
+            <span class="nav-icon">🎉</span>
+            <span class="nav-label">กิจกรรม</span>
+        </button>
+        <button class="nav-item" data-page="page-products" onclick="navigateTo('page-products', 1)">
+            <span class="nav-icon">🛍️</span>
+            <span class="nav-label">สินค้า</span>
+        </button>
+        <button class="nav-item" data-page="page-restaurants" onclick="navigateTo('page-restaurants', 2)">
+            <span class="nav-icon">🍜</span>
+            <span class="nav-label">อาหาร</span>
+        </button>
+        <button class="nav-item" data-page="page-accommodations" onclick="navigateTo('page-accommodations', 3)">
+            <span class="nav-icon">🏨</span>
+            <span class="nav-label">ที่พัก</span>
+        </button>
+        <button class="nav-item" data-page="page-transport" onclick="navigateTo('page-transport', 4)">
+            <span class="nav-icon">🚌</span>
+            <span class="nav-label">ขนส่ง</span>
+        </button>
+        <button class="nav-item" data-page="page-packages" onclick="navigateTo('page-packages', 5)">
+            <span class="nav-icon">🎒</span>
+            <span class="nav-label">แพ็คเกจ</span>
+        </button>
+        <button class="nav-item" data-page="page-info" onclick="navigateTo('page-info', 6)">
+            <span class="nav-icon">ℹ️</span>
+            <span class="nav-label">ข้อมูล</span>
+        </button>
+    </nav>
+
+    <!-- ============ MODALS ============ -->
+    <!-- Product Detail Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('product-modal')">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Restaurant Detail Modal -->
+    <div id="restaurant-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('restaurant-modal')">&times;</button>
+            <div id="modal-body-restaurant"></div>
+        </div>
+    </div>
+
+    <!-- JS Files -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/interactions.js"></script>
+</body>
+</html>
