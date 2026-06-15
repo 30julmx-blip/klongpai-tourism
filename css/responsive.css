@@ -1,0 +1,249 @@
+/* ==================== TABLET (768px) ==================== */
+@media (max-width: 768px) {
+    .header-container {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 12px 15px;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .search-box {
+        width: 150px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+
+    .accommodations-list {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .main-container {
+        padding: 15px;
+        padding-bottom: 120px;
+    }
+
+    .page-header h1 {
+        font-size: 24px;
+    }
+
+    .hero-section {
+        margin-bottom: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 24px;
+    }
+
+    .info-container {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-tabs {
+        gap: 8px;
+    }
+
+    .filter-btn {
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+}
+
+/* ==================== MOBILE (375px) ==================== */
+@media (max-width: 375px) {
+    .header-container {
+        padding: 12px 10px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .logo-text {
+        display: none;
+    }
+
+    .search-box {
+        width: 120px;
+        font-size: 12px;
+    }
+
+    .profile-btn {
+        font-size: 20px;
+    }
+
+    .main-container {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .page-header {
+        padding: 30px 15px;
+    }
+
+    .page-header h1 {
+        font-size: 20px;
+    }
+
+    .hero-content {
+        padding: 25px 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 20px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .restaurant-card {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .restaurant-icon {
+        font-size: 40px;
+    }
+
+    .accommodations-list {
+        grid-template-columns: 1fr;
+    }
+
+    .bottom-nav {
+        height: 90px;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .nav-item:nth-child(n+5) {
+        display: none;
+    }
+
+    .filter-tabs {
+        gap: 6px;
+        overflow-x: auto;
+    }
+
+    .filter-btn {
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+
+    .info-container {
+        grid-template-columns: 1fr;
+    }
+
+    .info-card {
+        padding: 16px;
+    }
+
+    .modal-content {
+        max-width: 95%;
+        max-height: 80vh;
+    }
+
+    #modal-body,
+    #modal-body-restaurant {
+        padding: 20px;
+    }
+
+    .events-container {
+        padding: 20px;
+    }
+
+    .transport-card {
+        padding: 16px;
+    }
+
+    .package-card {
+        margin-bottom: 10px;
+    }
+
+    .package-header {
+        padding: 16px;
+    }
+
+    .package-title {
+        font-size: 16px;
+    }
+
+    .package-price {
+        font-size: 16px;
+    }
+}
+
+/* ==================== SMALL MOBILE (320px) ==================== */
+@media (max-width: 320px) {
+    .header-container {
+        height: auto;
+        padding: 10px;
+    }
+
+    .search-box {
+        display: none;
+    }
+
+    .profile-btn {
+        font-size: 18px;
+    }
+
+    .page-header h1 {
+        font-size: 18px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bottom-nav {
+        grid-template-columns: repeat(4, 1fr);
+        height: 80px;
+    }
+
+    .nav-label {
+        font-size: 10px;
+    }
+
+    .nav-icon {
+        font-size: 20px;
+    }
+
+    .filter-btn {
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+}
+
+/* ==================== LANDSCAPE ==================== */
+@media (max-height: 500px) {
+    .bottom-nav {
+        height: 80px;
+    }
+
+    .main-container {
+        padding-bottom: 90px;
+    }
+
+    .hero-section {
+        margin-bottom: 10px;
+    }
+
+    .page-header {
+        padding: 20px 15px;
+    }
+
+    .page-header h1 {
+        font-size: 22px;
+        margin-bottom: 5px;
+    }
+}
